@@ -21,9 +21,15 @@ def create_article():
         print(i.title,i.text)
     return render_template("create_article.html",form = form)
 
+@app.route('/login')
+def login():
+    pass
+
+@app.route('/register')
+def register():
+    pass
 
 
-
-@app.route('/<username>')
+@app.route('/profile/<username>')
 def profile(username):
     return render_template("profile.html", message = username)

@@ -12,3 +12,6 @@ class CreateArticleForm(FlaskForm):
 class LoginForm(FlaskForm):
     username = StringField('Имя пользователя', validators=[DataRequired()])
     password = PasswordField('Пароль', validators=[DataRequired()])
+
+class RegistrationForm(FlaskForm):
+    pass
