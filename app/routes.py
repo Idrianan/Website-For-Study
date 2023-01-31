@@ -9,7 +9,7 @@ def index():
 
 
 @app.route('/create_article', methods = ['GET', 'POST'])
-def create_():
+def create_article():
     form = CreateArticleForm(request.form)
     if request.method == 'POST' and form.validate:
         a = Article(title = form.title.data, text = form.text.data)
