@@ -134,4 +134,6 @@ Lib/
 share/
 Scripts/
 pyvenv.cfg
-test.py
+
+app.db
+migrations/
