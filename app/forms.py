@@ -1,6 +1,6 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, SubmitField, TextAreaField, PasswordField
-from wtforms.validators import DataRequired
+from wtforms import StringField, SubmitField, TextAreaField, PasswordField,EmailField
+from wtforms.validators import DataRequired,Length
 from wtforms.widgets import TextArea
 
 class CreateArticleForm(FlaskForm):
@@ -12,6 +12,10 @@ class CreateArticleForm(FlaskForm):
 class LoginForm(FlaskForm):
     username = StringField('Имя пользователя', validators=[DataRequired()])
     password = PasswordField('Пароль', validators=[DataRequired()])
+    submit = SubmitField('Отправить')
 
 class RegistrationForm(FlaskForm):
-    pass
+    username = StringField('Имя пользователя', validators=[DataRequired(),Length(max = 64, message='Максимальная длина никнейма - 64 символа')])
+    password = PasswordField('Пароль', validators=[DataRequired(),Length(min = 6,max = 32, message='Длина пароля от 6 до 32 символов')])
+    email = EmailField('E-mail', validators=[DataRequired(),Length(max = 128, message='Максимальная длина email - 128 символов')])
+    submit = SubmitField('Отправить')
