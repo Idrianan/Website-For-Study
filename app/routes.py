@@ -25,6 +25,7 @@ def create_article():
         print(i.title,i.text)
     return render_template("create_article.html", form = form, title = 'Создание статьи')
 
+
 @app.route('/login', methods = ['GET', 'POST'])
 def login():
     if current_user.is_authenticated:
@@ -40,6 +41,7 @@ def login():
         return redirect(url_for('index'))
     return render_template("login.html", form = form, title = 'Авторизация')
 
+
 @app.route('/register', methods = ['GET', 'POST'])
 def register():
     form = RegistrationForm(request.form)
@@ -52,6 +54,7 @@ def register():
         return redirect(url_for("index"))
     return render_template("register.html", form = form, title = 'Регистрация')
 
+
 @app.route('/logout')
 @login_required
 def logout():
@@ -59,7 +62,3 @@ def logout():
     return redirect(url_for('index'))
 
 
-@app.route('/profile/<username>')
-@login_required
-def profile(username):
-    return render_template("profile.html", message = username)
